@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./index.css">
+  <title>電卓</title>
+</head>
+<body>
+  <table class="calculator">
+<!-- 1st line -->
+  	<tr>
+			<th class="display" id="display" colspan="4"></th>
+    </tr>
+<!-- 2nd line -->
+		<tr>
+			<td class="cell">
+				<input  type="button" class="button" value="7" onclick="clickBtnAction()"></input>
+			</td>
+			<td class="cell">
+				<input type="button" class="button" value="8" onclick="clickBtnAction()"></input>
+			</td>
+			<td class="cell">
+				<input type="button" class="button" value="9" onclick="clickBtnAction()"></input>
+			</td>
+			<td class="cell">
+				<input type="button" class="button" value="+" onclick="clickBtnAction()"></input>
+			</td>
+		</tr>
+<!-- 3rd line -->
+		<tr>
+			<td class="cell">
+				<input type="button" class="button" value="4" onclick="clickBtnAction()"></input>
+			</td>
+			<td class="cell">
+				<input type="button" class="button" value="5" onclick="clickBtnAction()"></input>
+			</td>
+			<td class="cell">
+				<input type="button" class="button" value="6" onclick="clickBtnAction()"></input>
+			</td>
+			<td class="cell">
+				<input type="button" class="button" value="-" onclick="clickBtnAction()"></input>
+			</td>
+		</tr>
+<!-- 4th line -->
+		<tr>
+			<td class="cell">
+				<input type="button" class="button" value="1" onclick="clickBtnAction()"></input>
+			</td>
+			<td class="cell">
+				<input type="button" class="button" value="2" onclick="clickBtnAction()"></input>
+			</td>
+			<td class="cell">
+				<input type="button" class="button" value="3" onclick="clickBtnAction()"></input>
+			</td>
+			<td class="cell">
+				<input type="button" class="button" value="*" onclick="clickBtnAction()"></input>
+			</td>
+		</tr>
+<!-- 5th line -->
+		<tr>
+			<td class="cell">
+				<input type="button" class="button" value="0" onclick="clickBtnAction()"></input>
+			</td>
+			<td class="cell">
+				<input type="button" class="button"  value="00" onclick="clickBtnAction()"></input>
+			</td>
+			<td class="cell">
+				<input type="button" class="button" value="." onclick="clickBtnAction()"></input>
+			</td>
+			<td class="cell">
+				<input type="button" class="button" value="/" onclick="clickBtnAction()"></input>
+			</td>
+		</tr>
+<!-- 6th line -->
+		<tr>
+			<td class="long_cell"colspan="2" >
+				<input type="button" class="long_button" id="allclear" value="AC" onclick=""></input>
+			</td>
+			<td class="long_cell" colspan="2">
+				<input type="button" class="long_button" id="equal" value="=" onclick=""></input>
+			</td>
+		</tr>
+	</table>
+
+    
+
+  <script src="./main.js"></script>
+</body>
+</html>
