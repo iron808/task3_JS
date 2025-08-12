@@ -1,33 +1,90 @@
-let setValue;
-let setClickBtn = [];
-let setResult = 0;
+let setValue; 
+let setClickValue; 
+let clickValue = []; 
+let setView; 
+let setResult = 0; 
 
-//クリックされたらディスプレイに表示と計算式に使う値と演算子を保持
-function clickBtnAction(){
-  setValue = document.getElementsByClassName("button");
+$('#display').text(setResult);
 
-  /*for (let i = 0; i < setValue.length; i++) {
-   setClickBtn.push(setValue[i].value);
-  }*/
+//keep the value when the button is cliked
+function calculation(value){
+  clickValue.push(setClickValue)
+  setView = clickValue.join("");
+  $('#display').text(setView);
+}
 
-  //setClickBtn.push(setValue);
-  console.log(setValue); //デバック用
-};
+//clear the value when the button is clicked
+function clearResult(){
+    clickValue.length = 0;
+    setView = 0;
+    setResult = 0;
+    $('#display').text(setResult);
+    console.log(clickValue);
+}
 
-//ディスプレイの中身を取得
-document.getElementById('display');
+//start the eventlistner when button is clicked
+setValue = document.querySelectorAll(".button");
 
-/*ディスプレイの中身を取得
-setValue = document.getElementById('display');
-console.log(setValue);*/
+  for (let i = 0; i < setValue.length; i++) {
+    setValue[i].addEventListener("click", function() {
+    setClickValue = this.value;
 
+//when the clickValue array is length 0
+    if(clickValue.length == 0){
+      
+      if (setClickValue == "AC"){
+        clearResult();
 
-//IF ACが押されたらディスプレイの値を消す
-$('#allclear').on('click',function(){
-$('#display').text("ACを押下");//デバック用
-});
+      }else if(/^[0-9]$/.test(setClickValue)){
+        calculation(setClickValue);
+        console.log(clickValue);
+        console.log(setView);
 
-//IF =ボタンが押されたらディスプレイの値を計算
-$('#equal').on('click',function(){
-$('#display').text("＝を押下");//デバック用
-});
+      }else{
+        return;      
+      }
+
+//when the clickValue array is over length 1 
+    }else if(clickValue.length >= 1){
+
+      if (setClickValue == "AC"){
+      clearResult();
+
+      }else if(/^[1-9]$/.test(setClickValue) && /^(?!0$).+/.test(setView) ){
+        calculation(setClickValue);
+      
+      }else if(setClickValue == "0" && /^[1-9]/.test(setView)){
+        calculation(setClickValue);
+      
+      }else if(setClickValue == "0" && /^0.+$/.test(setView)){
+        calculation(setClickValue);
+
+      }else if(setClickValue == "00" && /^[0-9]+$/.test(setView)){
+        calculation(setClickValue);
+      
+      }else if(setClickValue == "00" && /^[0-9]*[^\+\ \-\ \*\ \/\ ]$/.test(setView)){
+        calculation(setClickValue);
+      
+      }else if(setClickValue == "="){
+        setResult = math.evaluate(setView);
+        clickValue.length = 0;
+        clickValue.push(setResult);
+        $('#display').text(setResult);
+    
+      }else if(setClickValue == "+" && /[0-9]$/.test(setView)){
+        calculation(setClickValue);
+
+      }else if(setClickValue == "-" && /[0-9]$/.test(setView)){
+        calculation(setClickValue);
+
+      }else if(setClickValue == "*" && /[0-9]$/.test(setView)){
+        calculation(setClickValue);
+      
+      }else if(setClickValue == "/" && /[0-9]$/.test(setView)){
+        calculation(setClickValue);
+    
+      }else if(setClickValue == "." && /^[^.]*$/.test(setView) && /[0-9]$/.test(setView)){
+        calculation(setClickValue);
+      }
+  }});
+}

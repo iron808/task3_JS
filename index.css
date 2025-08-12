@@ -2,22 +2,31 @@
 
 .calculator{
 	text-align: center;
-	
+	table-layout: fixed;
+	width: 400px;
+
 	.display{
 		background-color: black;
-  color: white;
+		color: white;
 		height: 50px;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 	
- .cell,.long_cell{
+ .cell{
 		padding: 5px;
 	}
 
 	.button{
-  width: 50px;
+  width: 80px;
  }
- .long_button{
-  width: 100px;
+
+ 	.long_cell{
+		padding: 0;
+	}
+
+ #allclear,#equal{
+  width: 140px;
  }
 
 }
