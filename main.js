@@ -19,7 +19,6 @@ function clearResult(){
     setView = 0;
     setResult = 0;
     $('#display').text(setResult);
-    console.log(clickValue);
 }
 
 //start the eventlistner when button is clicked
@@ -83,7 +82,7 @@ setValue = document.querySelectorAll(".button");
       }else if(setClickValue == "/" && /[0-9]$/.test(setView)){
         calculation(setClickValue);
     
-      }else if(setClickValue == "." && /^[^.]*$/.test(setView) && /[0-9]$/.test(setView)){
+      }else if(setClickValue == "." && /^(?!.*[0-9]\.[0-9]*$).*/.test(setView) && /[0-9]$/.test(setView)){
         calculation(setClickValue);
       }
   }});
